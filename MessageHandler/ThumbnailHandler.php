@@ -15,7 +15,7 @@ class ThumbnailHandler implements MessageHandlerInterface
     {
         Logger::debug('BTB Received ThumbnailJob with assetId '.$message->getAssetId());
 
-        $asset = Asset::getById($message->getAssetId());
+        $asset = Asset::getById($message->getAssetId(), true);
 
         if (! $asset instanceof Asset\Image) {
             return;
